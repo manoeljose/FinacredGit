@@ -1,0 +1,382 @@
+{# app/Resources/views/lesson.html.twig #}
+
+<html lang="en" data-ng-app="app" class="ng-scope">
+<head>
+
+    <meta charset="utf-8">
+    <title>Finacred</title>
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>   
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('css/FinacredCss.css') }}" type="text/css">
+	
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+    // Atualiza��o: 30/11 - 15:30
+
+    function dimWrapper(w, h ) {
+    if (w < 10 || h < 10) {
+    var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;  // comando copiado do w3schools
+    // n�o achei a l�gica deste comando, mas funciona. O valor correto hora est� em uma vari�vel hora em outra. E sempre retornar o valor correto
+
+    var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight; // comando copiado do w3schools
+    // n�o achei a l�gica deste comando, mas funciona. O valor correto hora est� em uma vari�vel hora em outra. E sempre retornar o valor correto
+    }
+
+    wrapper_width  = w + "px";
+    wrapper_height = h + "px";
+
+    document.getElementById("wrapper").style.width = wrapper_width;
+    document.getElementById("wrapper").style.height = wrapper_height;
+
+    document.getElementById("home").style.width = wrapper_width;
+    document.getElementById("home").style.height = wrapper_height;
+
+    document.getElementById("empresa").style.width = wrapper_width;
+    document.getElementById("empresa").style.height = wrapper_height;
+
+    document.getElementById("produtos").style.width = wrapper_width;
+    document.getElementById("produtos").style.height = wrapper_height;
+
+    document.getElementById("atuacao").style.width = wrapper_width;
+    document.getElementById("atuacao").style.height = wrapper_height;
+
+    document.getElementById("honorarios").style.width = wrapper_width;
+    document.getElementById("honorarios").style.height = wrapper_height;
+
+    document.getElementById("conosco").style.width = wrapper_width;
+    document.getElementById("conosco").style.height = wrapper_height;
+
+    document.getElementById("amigavel").style.width = wrapper_width;
+    document.getElementById("amigavel").style.height = wrapper_height;
+
+    document.getElementById("extrajudicial").style.width = wrapper_width;
+    document.getElementById("extrajudicial").style.height = wrapper_height;
+
+    document.getElementById("judicial").style.width = wrapper_width;
+    document.getElementById("judicial").style.height = wrapper_height;
+    }
+
+    $(document).ready(function(){
+
+    $('#nome').tooltip({title: "Preenchimento obrigat�rio", trigger: "focus", placement: "bottom"}); // mensagem ao focar o campo do formul�rio
+    $('#email').tooltip({title: "Preenchimento obrigat�rio", trigger: "focus", placement: "bottom"}); // mensagem ao focar o campo do formul�rio
+    $('#assunto').tooltip({title: "Preenchimento obrigat�rio", trigger: "focus", placement: "bottom"}); // mensagem ao focar o campo do formul�rio
+    $('#comentarios').tooltip({title: "Preenchimento obrigat�rio", trigger: "focus", placement: "top"}); // mensagem ao focar o campo do formul�rio
+
+    // no load
+    $("#itens_menu01 li a").addClass("inativo");  // marca todos os itens	como inativos
+    $("#itens_menu01 li a:first").removeClass("inativo");  // remove inativo do primeiro item
+    $("#itens_menu01 li a:first").addClass("ativo");  // marca o primeiro item como ativo
+
+    // Add scrollspy to <body>
+//$('body').scrollspy({target: "#cabecalho", offset: 50});
+//$('#div02').scrollspy({target: "#cabecalho", offset: 50});
+
+
+// Add smooth scrolling on all links inside the navbar
+$("#itens_menu01 a").on('click', function(event) {
+
+// no click
+$("#itens_menu01 li a").removeClass("ativo");  // remove ativo de todos os itens. S� 1 est� ativo mas n�o sei qual
+$("#itens_menu01 li a").addClass("inativo");   // marca todos os itens como inativos
+$(this).removeClass("inativo");  			 // remove inativo do item clicado
+$(this).addClass("ativo");  				 // marca o item clicado como ativo
+
+
+/*
+alert("altura cabecalho = " + document.getElementById("#cabecalho").style.height);
+alert("altura div03 = " + document.getElementById("#div03").style.height);
+alert("altura nada = " + document.getElementById("#nada").style.height);
+alert("altura home = " + document.getElementById("#home").style.height);
+alert("altura empresa = " + document.getElementById("#empresa").style.height);
+*/
+
+
+// Prevent default anchor click behavior
+event.preventDefault();
+
+// Store hash
+var hash = this.hash;  // recupera nome do item atual
+
+if (hash != "#produtos") {
+$("#menu02").removeClass("posfixed");  // remove
+$("#menu02").addClass("posrelative");  // deixa o menu mymenu02 flutuar
+}
+else {
+$("#menu02").removeClass("posrelative");  // remove
+$("#menu02").addClass("posfixed");  // deixa o menu mymenu02 fixo
+$("#menu02 a:first").trigger('click');  // direciona para o primeiro item do mymenu02 e n�o executa o efeito do scroll. Isto porque este item tem submenu
+return;
+}
+
+// Using jQuery's animate() method to add smooth page scroll
+// The optional number (1800) specifies the number of milliseconds it takes to scroll to the specified area
+$('html, body').animate({
+scrollTop: $(hash).offset().top
+}, 1800, function(){
+
+// Add hash (#) to URL when done scrolling (default click behavior)
+window.location.hash = hash;
+
+//$(hash).hide();
+//$(hash).show(1800);
+
+//$(hash).fadeOut();
+//$(hash).fadeIn(1800)
+
+});
+});
+
+// Add smooth scrolling on all links inside the navbar
+$("#menu02 a").on('click', function(event) {
+
+$("#itens_menu02 li a").removeClass("ativo");  // remove ativo de todos os itens. S� 1 est� ativo mas n�o sei qual
+$("#itens_menu02 li a").addClass("inativo");   // marca todos os itens como inativos
+$(this).removeClass("inativo");  			 // remove inativo do item clicado
+$(this).addClass("ativo");  				 // marca o item clicado como ativo
+
+// Prevent default anchor click behavior
+event.preventDefault();
+
+// Store hash
+var hash = this.hash;  // recupera nome do item atual
+
+// Using jQuery's animate() method to add smooth page scroll
+// The optional number (1800) specifies the number of milliseconds it takes to scroll to the specified area
+$('html, body').animate({
+scrollTop: $(hash).offset().top
+//scrollLeft: $(hash).offset().top
+}, 1800, function(){
+
+// Add hash (#) to URL when done scrolling (default click behavior)
+window.location.hash = hash;
+});
+});
+
+$("#validaform").on('click', function(event) {
+var enviar = 1;
+if ($("#nome").val().length < 1){
+var enviar = 0;
+$("#nome").focus();
+}
+if ($("#email").val().length < 1){
+var enviar = 0;
+$("#email").focus();
+}
+if ($("#assunto").val().length < 1){
+var enviar = 0;
+$("#assunto").focus();
+}
+if ($("#comentarios").val().length < 1){
+var enviar = 0;
+$("#comentarios").focus();
+}
+if (enviar == 1) {   // campos preenchidos. Formulario sera enviado
+
+// Monta string com dados do email
+var dadosEmail = $("#nome").val() + "/" + $("#wempresa").val() + "/" +  $("#telefone").val() + "/" + $("#email").val() + "/" + $("#assunto").val() + "/" + $("#comentarios").val();
+
+
+// recupera url a partir da rota passando parametro ficticio apenas para atender a sintaxe do twig
+w_rota = "{{ url('send_Email', {'nome':"@!**!@", 'empresa':"@!**!@", 'telefone':"@!**!@", 'email':"@!**!@", 'assunto':"@!**!@", 'comentarios':"@!**!@"}) }}";
+
+// substitui o par�metro ficticio pelo real, montando a url completa
+//w_url = w_rota.replace("@!**!@/@!**!@/@!**!@/@!**!@/@!**!@/@!**!@",dadosEmail);
+
+//var request = $.post(w_url);
+//request.success(function(result) {
+//	alert ("result = " + result);
+//	var user_message = JSON.parse(result);   // Converte JSon em object JavaScript
+// gerar mensagem na tela
+//});
+//request.error(function(jqXHR, textStatus, errorThrown) {
+//	alert("Problema no acesso ao servidor: textStatus = " + textStatus + " - errorThrown = " + errorThrown);
+//});
+}
+});
+
+});
+
+</script>
+
+{% endblock %}
+</head>
+
+{% block content %}
+
+<body onresize="dimWrapper(0,0)" onload="dimWrapper(0,0)">
+	<div class="wrapper" id="wrapper">	
+		<div id="cabecalho">
+			<div id="div01">
+				<div id="logo">						
+				<!--<img src="FINACRED_LOGO_marco_orig.JPG" width="800" height="262"> -->
+					<img src="img/FINACRED_LOGO_marco_cobr.jpg" width="800" height="262">   <!-- melhor ?? -->
+				<!--<img src="FINACRED_LOGO_marco_cobr.png" width="800" height="262">  -->
+				<!--<img src="FINACRED_LOGO_Murilo_transp_cobr.png" width="800" height="262"> -->
+				</div>
+			</div>  <!-- id="div01"  Espaço pra logo -->			
+			<div id="menu01">
+				<ul id="itens_menu01">
+					<li ><a href="#home">Home</a></li>  <!-- class="active" diz qual item está ativo -->
+					<li ><a href="#empresa">A empresa</a></li>
+					<li ><a href="#produtos">Produtos trabalhados</a></li>
+					<li ><a href="#atuacao">Área de atuação</a></li>		
+					<li ><a href="#honorarios">Honorários</a></li>
+					<li ><a href="#conosco">Fale conosco</a></li>
+				</ul>	
+			</div>  <!-- id="menu01" -->				
+		</div>  <!-- id=cabecalho" -->
+
+   		<div id="div03"> 
+			<div id="home">
+				<div class="nada"></div>  <!-- div falsa apenas pra ficar atrás do cabecalho que está fixo -->
+				<p><b>Somos uma empresa especializada no segmento de recuperação de crédito.</b></p>
+			</div>
+			
+			<div id="empresa">
+				<div class="nada"></div>  <!-- div falsa apenas pra ficar atrás do cabecalho que está fixo -->
+				<p>Somos uma empresa especializada no segmento de recuperação de crédito.</p>
+				<b></b>
+				<p>Nosso principal objetivo é agilizar a cobrança, reduzindo a inadimplência e, assim, fortalecer o fluxo de caixa.</p>
+				<b></b>	
+				<p>Trabalhamos com profissionais treinados e experientes que respeitam os princípios éticos e desenvolvem  uma prestação de serviços de qualidade, principalmente na preservação da imagem dos nossos clientes, assessorando-os na busca de melhores resultados.</p>
+				<b></b>			
+				<p>A cobrança é realizada através de constantes ligações telefônicas, avisos de cobrança (correio) e visitas de operadores externos aos inadimplentes.</p>
+				<b></b>
+				<p>Com a contratação de nossos serviços, seus funcionários terão maior disponibilidade para exercerem principais atividades administrativas, sem os desgastes psicológicos provocados pelos contatos com os devedores. Além dessas vantagens, podemos acrescentar a redução de custos com funcionários, materiais de expediente e telefonia.</p>
+				<b></b>
+				<p>Esperamos ter a oportunidade de expor o nosso trabalho, o qual trará excelente resultado financeiro para os clientes.</p>
+				<b></b>				
+			</div>
+			
+			<div id="produtos">
+				<div class="nada"></div>  <!-- div falsa apenas pra ficar atrás do cabecalho que está fixo -->
+				<div id="area_menu02">
+					<div id="menu02">
+						<ul id="itens_menu02">
+							<li ><a href="#amigavel" class="active">Cobrança Amigável</a></li>  <!-- class="active" diz qual item está ativo -->
+							<li ><a href="#extrajudicial">Cobrança Extrajudicial</a></li>
+							<li ><a href="#judicial">Cobrança Judicial</a></li>			
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div id="atuacao">
+				<div class="nada"></div>  <!-- div falsa apenas pra ficar atrás do cabecalho que está fixo -->
+				<ul>
+					<li>Aluguéis</li>
+					<li>Cheques</li>
+					<li>Condomínios</li>
+					<li>Duplicatas</li>
+					<li>Empréstimos</li>
+					<li>Mensalidades escolares</li>
+					<li>Notas Promissórias</li>					
+				</ul>				
+			</div>
+			
+			<div id="honorarios">
+				<div class="nada"></div>  <!-- div falsa apenas pra ficar atrás do cabecalho que está fixo -->
+				<h1>Com relação aos honorários, gostaríamos de apresentar pessoalmente, mas de antemão, podemos afirmar que as remunerações serão devidas somente com resultados positivos da cobrança, sem onerar os nossos clientes.</h1>
+				<b></b>				
+			</div>
+			
+			<div id="conosco">
+				<div class="nada"></div>  <!-- div falsa apenas pra ficar atrás do cabecalho que está fixo -->
+				<div id="conosco01">
+					<h3>FINACRED SERVIÇOS DE COBRANÇA</h3>		
+					<b></b>				<b></b>				<b></b>
+					<p>Rua Marechal Deodoro, 51 – 18º andar – Conj. 1802B – Centro</p>
+					<p>Curitiba – Pr.</p>
+					<p>CEP: 80020-905</p>
+					<p>Fone: (41) 3032-7227.</p>
+				</div>
+				
+				<div id="conosco02">
+					<!--<form id="form1" name="form1">  -->
+					<div id="form1" name="form1">   <!-- O correto seria usar a tag form junto com action pra submeter o formulário. Porém a tag form altera o comportamento do evento focus(). Como não preciso do action para submter o form, usei div no lugar de form -->
+						<fieldset>  <!-- agrupa campos de um form -->
+							<p><b>Preencha os dados abaixo:</b></p> 
+							<div class="linha"> 
+								<label>Nome: <br /> 
+									<input name="nome" type="text" id="nome" size="40" /> 
+								</label> 
+							</div> 
+							
+							<div class="linha"> 
+								<label>Empresa: <br /> 
+									<input name="empresa" type="text" id="wempresa" size="40" /> 
+								</label> 
+							</div>
+
+							<div class="linha"> 
+								<label>Telefone: <br /> 
+									<input name="telefone" type="text" id="telefone" size="40" /> 
+								</label> 
+							</div> 							
+					
+							<div class="linha"> 
+								<label> Email: <br /> 
+									<input name="email" type="text" id="email" size="40" /> 
+								</label> 
+							</div>
+					
+							<div class="linha"> 
+								<label>Assunto: <br /> 
+									<input name="assunto" type="text" id="assunto" size="40" /> 
+								</label> 
+							</div> 
+					
+							<div id="rodape">
+								<div class="linha" id="caixa_texto"> 
+									<label>Comentários: <br /> 
+										<textarea name="comentarios" cols="30" rows="4" id="comentarios"></textarea> 
+									</label> 
+								</div> 
+		
+								<div id="btnValidaForm">
+									<div> 
+										<button class="btn btn-success btn-md" id="validaform">Enviar</button>
+									</div> 
+								</div>
+							</div> <!-- rodape -->
+						</fieldset> 
+					</div>   <!-- id="form1"  -->
+				</div>
+			</div>
+					
+			<div id="amigavel">
+				<div class="nada01"></div>  <!-- div falsa apenas pra ficar atrás do cabecalho que está fixo -->
+				<p>Texto sobre Cobrança Amigável.</p>
+				<b></b>				
+			</div>
+			
+			<div id="extrajudicial">
+				<div class="nada01"></div>  <!-- div falsa apenas pra ficar atrás do cabecalho que está fixo -->
+				<p>Texto sobre Cobrança Extrajudicial.</p>
+				<b></b>				
+			</div>
+			
+			<div id="judicial">
+				<div class="nada01"></div>  <!-- div falsa apenas pra ficar atrás do cabecalho que está fixo -->
+				<p>Texto sobre Cobrança Judicial.</p>
+				<b></b>				
+			</div>
+			
+			
+		</div>  <!-- id="div03" -->
+	</div> <!-- class="wrapper -->
+</body>
+</html>
+
+{% endblock %}
+
+

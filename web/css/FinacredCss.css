@@ -1,0 +1,410 @@
+@charset "utf-8";
+/* // Atualização: 30/11 - 15:30  */
+
+html{
+overflow-y:hidden;   /* Elimina a barra de rolagem */
+overflow-x:hidden;
+}
+
+.wrapper {
+	position: relative;
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto;  
+	background-color: #99ccff;
+}
+img {           /* toda imagem ocupa totalmente o box em que está inserida */
+	width: 100%;
+	height: 100%;
+}
+#cabecalho {
+	position: fixed; 
+	top: 0;
+	right: 0;
+	height: 30.2%;
+	width: 100%;
+}
+#div01 {
+	background-image: url(../img/postitFone.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	height: 67.15%;
+	width: 100%;
+	background-color: white;  /*#009688*/
+}
+
+/* Início - Estilos para definição do Menu menu01 */
+#menu01 {   /* regras da div */
+	padding: 3.9px;
+	border:2px inset #cccccc;
+	height: 25.75%;
+	box-sizing:border-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+	width:100%; /* 100% - 0,8% de padding - 0,7% de border  */
+	background-color: #999999;  /* #80bfff; #999999 = cinza claro*/
+}
+
+#menu01 ul {  /* regras da ul */
+margin:0;  
+padding: 5px;
+border:2px outset #ffffff;  /* branco */
+height:72.8%;
+box-sizing:content-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+	
+width:98.48%;   /* 100% - 0,8% de padding - 0,7% de border  */
+background: #000000;     /* preto */
+text-align: justify;	
+display: flex;
+justify-content:space-around;	 /* faz com que os itens de menu fiquem equidistantes */
+}
+
+#itens_menu01 li {      /* regras da li */    
+height:78.02%;
+background:black;   /* #666666 = cinza escuro*/
+padding: 5px;
+margin:0;
+display:inline;  /* inline = horizontal; */
+box-sizing:content-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+}
+
+#menu01 li a {            /* regras da "a" inicial */  
+box-sizing:content-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+height:64.79%;
+font-family: Gill Sans;  /*Trebutchet MS;  Gill Sans; Gill Sans;   Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+text-align: center;
+font-size: 130%;  /*20px;*/
+font-style: oblique;  /* normal , italic , oblique */
+text-decoration: none;	
+padding: 5px;
+}
+
+#menu01 li a:hover {     /* regras da "a" conforme movimento do mouse */
+color:black;  /* #ffffff=branco */
+text-decoration: none;
+}
+
+.ativo {   /* regras da "a" conforme o click - marca o item clicado */
+background: #b30000; /* red; */
+color:white;  
+}  
+
+.inativo {   /* regras da "a" conforme o click - marca o item não clicado */
+background:#666666;   /* cinza escuro*/
+color:white;  
+} 
+
+/* Fim - Estilos para definição do Menu menu01 */
+
+/* Início - Estilos para definição do Menu menu02 */
+#area_menu02{
+	padding-left: 20%;
+	padding-right: 20%;
+}
+#menu02 {   /* regras da div */
+	padding: 3.9px;
+	border:2px inset #cccccc;
+	height: 7.70%;
+	box-sizing:border-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+	width:60%; /* 100% - 0,8% de padding - 0,7% de border  */
+	background-color: #999999;  /* #80bfff; #999999 = cinza claro*/
+}
+
+#menu02 ul {  /* regras da ul */
+margin:0;  
+padding: 5px;
+border:2px outset #ffffff;  /* branco */
+height:72.8%;
+box-sizing:content-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+	
+width:98.48%;   /* 100% - 0,8% de padding - 0,7% de border  */
+background: #000000;     /* preto */
+text-align: justify;	
+display: flex;
+justify-content:space-around;	 /* faz com que os itens de menu fiquem equidistantes */
+}
+
+#itens_menu02 li {      /* regras da li */    
+height:78.02%;
+background:black;   /* #666666 = cinza escuro*/
+padding: 5px;
+margin:0;
+display:inline;  /* inline = horizontal; */
+box-sizing:content-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+}
+
+#menu02 li a {            /* regras da "a" inicial */  
+box-sizing:content-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+height:64.79%;
+font-family: Gill Sans;  /*Trebutchet MS;  Gill Sans; Gill Sans;   Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+text-align: center;
+font-size: 90%;  /*20px;*/
+font-style: oblique;  /* normal , italic , oblique */
+text-decoration: none;	
+padding: 5px;
+}
+
+#menu02 li a:hover {     /* regras da "a" conforme movimento do mouse */
+color:black;  /* #ffffff=branco */
+text-decoration: none;
+}
+
+/* Fim - Estilos para definição do Menu menu02 */
+
+/* Inicio - Estilos do formulário */
+
+#form1 { 
+ font-family: Verdana, Arial, Helvetica, sans-serif; 
+ font-size: 11px; 
+} 
+
+#form1 legend { 
+ color: #333366; 
+ font-weight: bold; 
+} 
+
+#form1 fieldset { 
+ padding: 20px 10px 20px 10px; 
+ width: 300px; 
+} 
+
+#form1 label { 
+ color: black; 
+} 
+.linha { 
+ padding-top: 10px; 
+ padding-left: 10px; 
+} 
+
+input,textarea{ 
+ background-color: #f4f4f4; 
+}
+
+#rodape {
+	width: 350px;
+	height: 100px;
+}
+#caixa_texto {
+	float: left;
+	width: 75%;
+	height: 100%;
+}
+
+#btnValidaForm {
+    float: right;
+	width: 25%;
+	height: 30%;
+	padding-top: 35px;
+	padding-left: 10px;
+	box-sizing:border-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+}
+
+/* Fim - Estilos do formulário */
+
+#logo{
+	padding-right: 30%;
+	padding-left: 30%;
+	height: 100%;
+}
+#div03{
+	text-align: justify;
+}
+
+.texto {
+	text-align: center;
+	text-align: justify;
+	color: black;
+	text-indent: 50px;
+	font-family: Gill Sans;  /* Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+	font-size: 150%;  /*20px;*/
+	font-style: oblique;  /* normal , italic , oblique */
+}
+.nada{
+	height: 27.99%;
+	width: 100%;
+}
+
+.nada01{
+	/*height: 221.94px;*/
+	height: 34.0%;
+	width: 100%;
+}
+
+#home {
+	background-image: url(../img/imagem05.jpg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto; 
+	background-color: #bfbfbf; /* #999999 = cinza claro; #1E88E5=azul; */
+	background-attachment: fixed; /* Imagem vai sendo encoberta pelo texto */
+	
+	padding: 300px;
+	
+	text-align: center;
+	/*text-align: justify;*/
+	color: white;  /* #b30000=red */
+	text-indent: 0px;
+	font-family: Gill Sans;  /* Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+	font-size: 300%;  /*20px;*/
+	font-style: oblique;  /* normal , italic , oblique */
+}  
+	
+#empresa {
+	/*height: 643px;*/
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto; 
+	background-color: #bfbfbf;
+	
+	padding: 100px;
+	
+	text-align: center;
+	text-align: justify;
+	color: black;
+	text-indent: 50px;
+	font-family: Gill Sans;  /* Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+	font-size: 150%;  /*20px;*/
+	font-style: oblique;  /* normal , italic , oblique */
+} 
+
+#produtos {
+	/*height: 643px;*/
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto; 
+	/*background-color: #ff9800;*/
+} 
+
+#atuacao {
+	/*height: 643px;*/
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto; 
+	background-color: #666666;
+	
+	padding-top: 100px;
+	padding-left: 400px;
+	
+	text-align: center;
+	text-align: justify;
+	color: black;
+	text-indent: 50px;
+	font-family: Gill Sans;  /* Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+	font-size: 150%;  /*20px;*/
+	font-style: oblique;  /* normal , italic , oblique */
+} 
+
+#atuacao ul {
+	list-style: square url(../img/tick.png);    /*list-style: square url("tick.png"); */
+}
+
+#honorarios {
+	/*height: 643px;*/
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto; 
+	background-color: #4d4d4d;
+	padding: 250px;
+	
+	text-align: center;
+	text-align: justify;
+	color: black;
+	text-indent: 50px;
+	font-family: Gill Sans;  /* Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+	font-size: 200%;  /*20px;*/
+	font-style: oblique;  /* normal , italic , oblique */
+} 
+
+#conosco {
+	/*height: 643px;*/
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto; 
+	background-color: #999999;
+} 
+
+#conosco01 {
+	/*height: 643px;*/
+	box-sizing:border-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+	float: right;
+	width: 40%;    /* definido em dimWrapper(w, h )   */
+	margin-top: 10%;
+	margin-right: 5%;
+	padding: 5px;
+	border:2px inset #cccccc;
+	background-color: #999999;
+} 
+#conosco02 {
+	/*height: 643px;*/
+	box-sizing:border-box ;  /* border-box (inclue border e padding no height)  - content-box (não inclui, valor default) */
+	float: left;
+	width: 40%;    /* definido em dimWrapper(w, h )   */
+	margin-top: 3%;
+	margin-left: 5%;
+	padding: 5px;
+	background-color: #999999;
+	border:2px inset #cccccc;
+} 
+
+#amigavel {
+
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto;
+	background-color: #999999;
+	
+	padding: 300px;
+	
+	text-align: center;
+	text-align: justify;
+	color: black;
+	text-indent: 50px;
+	font-family: Gill Sans;  /* Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+	font-size: 300%;  /*20px;*/
+	font-style: oblique;  /* normal , italic , oblique */
+} 
+
+#extrajudicial {
+	/*padding: 221.94px 150px 0px 150px; /* top, right, bottom, left  */
+	/*height: 643px;*/
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto;
+	background-color: #8c8c8c;
+	
+	
+	padding: 300px;
+	
+	text-align: center;
+	text-align: justify;
+	color: black;
+	text-indent: 50px;
+	font-family: Gill Sans;  /* Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+	font-size: 300%;  /*20px;*/
+	font-style: oblique;  /* normal , italic , oblique */
+} 
+
+#judicial {
+	/*padding: 221.94px 150px 0px 150px; /* top, right, bottom, left  */
+	/*height: 643px;*/
+	width: auto;    /* definido em dimWrapper(w, h )   */
+	height: auto;
+	background-color: #4d4d4d;
+	
+	padding: 300px;
+	
+	text-align: center;
+	text-align: justify;
+	color: black;
+	text-indent: 50px;
+	font-family: Gill Sans;  /* Arial , Helvetica, Impact, Arial Narrow, Arial Black, Gill Sans,  Gill Sans MT */
+	font-size: 300%;  /*20px;*/
+	font-style: oblique;  /* normal , italic , oblique */
+} 
+
+
+.posrelative {
+	position: relative;	
+}
+.posfixed {
+	position: fixed;
+	top: 27.99%;
+}
+
+#validaform {
+	background-color: #4d4d4d;
+	border:0px ;
+}
+
+

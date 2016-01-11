@@ -1,0 +1,4 @@
+services:
+#    finacred.example:
+#        class: FinacredBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
