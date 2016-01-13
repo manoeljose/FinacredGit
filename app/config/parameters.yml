@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 8080
+    database_name: db_manoel
+    database_user: root
+    database_password: null
+    mailer_transport: gmail
+    mailer_host: ~  
+
+    mailer_user: "manekojsantos@gmail.com"
+    mailer_password: "uapstmdenhakuoyk"
+    secret: ThisTokenIsNotSoSecretChangeIt
+#   mailer_port: 25
+    mailer_port: 465
+#   mailer_port: 587
