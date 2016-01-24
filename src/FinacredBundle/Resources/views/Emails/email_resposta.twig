@@ -1,0 +1,53 @@
+{% block body_text %}
+
+{% endblock %}
+
+{% block content %}
+
+    <!-- Spacing -->
+
+    <tr>
+        <td width="100%" height="10" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
+        </td>
+    </tr>
+    <tr>
+        <td style="font-family: arial; font-size: 12px; color: rgb(102, 102, 102); text-align: left; line-height: 20px; position: relative;" class="mce-content-body">
+            <span style="font-size: 14px; line-height: 19.6000003814697px; ">
+                <span style="font-size: 18px; margin-bottom: 12px;margin-top: 10px;display: block;">Olá Sr(a) {{ contato_nome |capitalize }},</span>
+
+
+
+                    <span id="answer" style="padding-bottom: 6px; /* padding-top: 12px; */ line-height: 1.5;font-size: 16px;/* margin-left: 10px; */display: block;">agradecemos o seu cantato.</span>
+					
+                    <span id="answer" style="padding-bottom: 6px; /* padding-top: 12px; */ line-height: 1.5;font-size: 16px;/* margin-left: 10px; */display: block;">Em breve retornaremos para esclarecer suas dúvidas.</span>	
+
+				<tr> <!-- espaço -->
+					<td width="100%" height="10" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
+					<td width="100%" height="10" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
+					</td>
+				</tr>					
+
+				<!--  Assinatura -->
+				
+                <span style="padding-top: 15px;font-size: 12px;color: blue;text-align: justify;line-height: 0.4;display: block;"><b>Marco Túlio Coelho de Brito</b></span>
+				
+                <span style="padding-top: 15px;font-size: 12px;color: blue;text-align: justify;line-height: 0.4;display: block;">Gerente</span>		
+
+                <img style="border: none; outline: none; text-decoration: none;" src="{{ app.request.uriForPath('/img/FINACRED_LOGO_marco_cobr.jpg') }}" alt="" width="120" height="70" border="0">	
+                <img style="border: none; outline: none; text-decoration: none;" src="http://localhost:8000/img/FINACRED_LOGO_marco_cobr.jpg" alt="" width="120" height="70" border="0">
+<!-- http://www.hemail.com.br/imagem-nao-aparece-na-assinatura-html-do-windows-mail  -->
+
+                <span style="padding-top: 15px;font-size: 10px;color: blue;text-align: justify;line-height: 0.3;display: block;">Rua Mal. Deodoro, 51 - Conj. 1802 B</span>
+				
+                <span style="padding-top: 15px;font-size: 10px;color: blue;text-align: justify;line-height: 0.3;display: block;">Curitiba - PR - CEP: 80020-905</span>
+				
+                <span style="padding-top: 15px;font-size: 10px;color: blue;text-align: justify;line-height: 0.3;display: block;">Tel. (41)3032-7227 - (41)9198-3027</span>
+
+
+        </td>
+    </tr>
+    <!-- end of content -->
+
+
+
+{% endblock %}

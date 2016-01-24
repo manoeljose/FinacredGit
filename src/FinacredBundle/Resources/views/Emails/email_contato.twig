@@ -1,17 +1,8 @@
-
-
-
 {% block body_text %}
 
 {% endblock %}
 
 {% block content %}
-    <tr>
-        <td style="font-family: arial; font-size: 18px; color: rgb(51, 51, 51); text-align: left; line-height: 24px; position: relative;" class="mce-content-body">
-            <p>Sua pergunta foi respondida!</p>
-        </td>
-    </tr>
-    <!-- end of title -->
 
     <!-- Spacing -->
 
@@ -22,8 +13,7 @@
     <tr>
         <td style="font-family: arial; font-size: 12px; color: rgb(102, 102, 102); text-align: left; line-height: 20px; position: relative;" class="mce-content-body">
             <span style="font-size: 14px; line-height: 19.6000003814697px; ">
-                <span style="font-size: 18px; margin-bottom: 12px;margin-top: 10px;display: block;">Olá Nome_do_contato,</span>
-                <span style="font-size: 16px;font-style: normal;" >Obrigado por nos contatar</span>
+                <span style="font-size: 18px; margin-bottom: 12px;margin-top: 10px;display: block;">Dados do contato:</span>
 
                 <div style="
     display: block;
@@ -35,8 +25,17 @@
 
 ">
 
-                </div>
+                    <span id="answer" style="padding-bottom: 6px; line-height: 1.5;font-size: 16px;/* margin-left: 10px; */display: block;"><b>Nome:</b> {{ contato_nome |capitalize }}</span>
+					
+                    <span id="answer" style="padding-bottom: 6px; line-height: 1.5;font-size: 16px;/* margin-left: 10px; */display: block;"><b>Telefone:</b> {{ contato_telefone |capitalize }}</span>	
 
+                    <span id="answer" style="padding-bottom: 6px; line-height: 1.5;font-size: 16px;/* margin-left: 10px; */display: block;"><b>Email:</b> {{ contato_email |capitalize }}</span>	
+					
+                    <span id="answer" style="padding-bottom: 6px; line-height: 1.5;font-size: 16px;/* margin-left: 10px; */display: block;"><b>Assunto:</b> {{ contato_assunto |capitalize }}</span>		
+
+                    <span id="answer" style="padding-bottom: 6px; line-height: 1.5;font-size: 16px;/* margin-left: 10px; */display: block;"><b>Comentários:</b> {{ contato_comentarios |capitalize }}</span>						
+
+                </div>
 
             </span>
         </td>

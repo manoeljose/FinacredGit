@@ -35,16 +35,53 @@ class BeginController extends Controller
         /** @var  $em EntityManager */
         $em = $this->getDoctrine()->getManager();
 
-        //send email
+        //envia email pra própria empresa com as informações preenchidas pelo contato
         $message = $message = \Swift_Message::newInstance()
             ->setSubject('Contato')
-            ->setFrom('manekojsantos@gmail.com')
-            ->setTo('majosto@yahoo.com.br')
+            ->setFrom(array('manekojsantos@gmail.com' => 'Finacred'))
+            ->setTo(array('manekojsantos@gmail.co' => 'Finacred'))      // 'majosto@yahoo.com.br'
             ->setReplyTo('manekojsantos@gmail.com')
+            //->attach(Swift_Attachment::fromPath('my-document.pdf'))    // anexo
             ->setBody(
                 $this->renderView(
                     '@FinacredBundle/Resources/views/Emails/email_contato.twig',
-                    array('name' => 'Manoel')
+                    array('contato_nome' => $nome,
+                        'contato_empresa' => $empresa,
+                        'contato_telefone' => $telefone,
+                        'contato_email' => $email,
+                        'contato_assunto' => $assunto,
+                        'contato_comentarios' => $comentarios
+                    )
+                ),
+                'text/html'
+            );
+        $retorno = $this->get('mailer')->send($message);
+
+        $arrayReturn = array();
+        if (!($retorno)) {
+            $arrayReturn[] = array ('msg' => 'Problemas na emissao de email de contato');
+            $jsonArrayReturn = json_encode($arrayReturn);
+            return new JsonResponse($jsonArrayReturn);
+        }
+
+
+        //Envia email resposta para quem fez o contato
+        $message = $message = \Swift_Message::newInstance()
+            ->setSubject('Contato')
+            ->setFrom(array('manekojsantos@gmail.com' => 'Finacred'))
+            ->setTo(array($email => $nome))      // 'majosto@yahoo.com.br'
+            ->setReplyTo('manekojsantos@gmail.com')
+            //->attach(Swift_Attachment::fromPath('my-document.pdf'))    // anexo
+            ->setBody(
+                $this->renderView(
+                    '@FinacredBundle/Resources/views/Emails/email_resposta.twig',
+                    array('contato_nome' => $nome,
+                        'contato_empresa' => $empresa,
+                        'contato_telefone' => $telefone,
+                        'contato_email' => $email,
+                        'contato_assunto' => $assunto,
+                        'contato_comentarios' => $comentarios
+                    )
                 ),
                 'text/html'
             );
@@ -53,7 +90,13 @@ class BeginController extends Controller
         $retorno = $this->get('mailer')->send($message);
 
         $arrayReturn = array();
-        $arrayReturn[] = array ('msg' => 'email emitido com muito sucesso');
+        if ($retorno) {
+            $arrayReturn[] = array ('msg' => 'email emitido com sucesso');
+        }
+        else {
+            $arrayReturn[] = array ('msg' => 'Problemas na emissao de email de resposta');
+        }
+
         $jsonArrayReturn = json_encode($arrayReturn);
         return new JsonResponse($jsonArrayReturn);
 	}
